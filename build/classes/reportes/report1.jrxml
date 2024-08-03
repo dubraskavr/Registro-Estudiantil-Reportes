@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c47f4ca-922f-4c35-95cf-9f662d32f97d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT 
+    e.nombre,
+    e.apellido,
+    e.telefono,
+    es.nombre AS estado,
+    ec.descripcion AS estado_civil,
+    d.nombre_documento AS documento,
+    e.identificacion
+FROM 
+    estudiantes e
+JOIN 
+    estados es ON e.estado_id = es.id
+JOIN 
+    estado_civil ec ON e.estado_civil_id = ec.id
+JOIN 
+    documentos d ON e.documento_id = d.id;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String"/>
+	<field name="estado_civil" class="java.lang.String"/>
+	<field name="documento" class="java.lang.String"/>
+	<field name="identificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="13" width="281" height="41" uuid="df8e4111-b726-422f-b0e1-57b16c696c5f"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Reporte de Estudiantes]]></text>
+			</staticText>
+			<image>
+				<reportElement x="26" y="13" width="64" height="51" uuid="33548179-7fb4-4716-9c8f-e7a01e5d262b"/>
+				<imageExpression><![CDATA["C:\\Users\\pc\\Documents\\NetBeansProjects\\LoginProyecto\\src\\imagenes\\imagen_reportes.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="428" y="23" width="127" height="20" uuid="badf85ad-2bba-4788-91d8-b051960c3cfb"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="2" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="65" height="20" uuid="d1c5eec8-a23e-4659-802c-e4cae06b3a50"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="0" width="65" height="20" uuid="483b0fe2-6ec8-4e1c-8cd0-09d1bd9560c1"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="0" width="67" height="20" uuid="db5640ef-beaa-438d-9d34-01df8c03452f"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="84" height="20" uuid="10e64339-e38b-470c-9881-e7cfbaea3051"/>
+				<text><![CDATA[Estado Civil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="0" width="113" height="20" uuid="ec15db2a-9439-49d1-b41d-039556081f48"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="0" width="79" height="20" uuid="8b143052-f943-4e4b-9a57-b272630db1ba"/>
+				<text><![CDATA[Identificacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="82" height="20" uuid="786c67a3-f708-453b-9cf7-d811a3f00f4c"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="65" height="20" uuid="02779251-17a2-42cc-93c7-b726088fc690"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="0" width="65" height="20" uuid="8b8a50e1-75bf-4afa-bf0e-31bcce244e1e"/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="82" height="20" uuid="ca5b2c7a-84a3-406b-ac3b-5c408aa741fe"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="0" width="67" height="20" uuid="f1acb726-2fe6-4314-9cec-89c4123d4060"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="84" height="20" uuid="22e04faa-b320-44f1-a50f-976056e73f03"/>
+				<textFieldExpression><![CDATA[$F{estado_civil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="363" y="0" width="113" height="20" uuid="8ce2fcdc-da3c-4611-92e7-026dbe2d3f12"/>
+				<textFieldExpression><![CDATA[$F{documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="0" width="79" height="20" uuid="d86c81e8-ccdb-4e4f-ab63-b8b4a8a744ad"/>
+				<textFieldExpression><![CDATA[$F{identificacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="198" y="0" width="80" height="20" uuid="b8ae9f06-5f24-4e3d-a11d-547f2eca4def"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="278" y="0" width="40" height="20" uuid="94911c2d-c23e-4f4c-8cd6-2c53b579ca31"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
